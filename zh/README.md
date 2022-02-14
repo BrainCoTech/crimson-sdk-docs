@@ -1,5 +1,5 @@
 ---
-description: V1.0.0
+description: V1.1.0
 ---
 
 # CrimsonSDK

@@ -27,7 +27,7 @@ repositories {
 // app/build.gradle
 dependencies {
     // import crimson-sdk from maven
-    api 'tech.brainco:crimsonsdk:1.1.0'
+    api 'tech.brainco:crimsonsdk:1.1.1'
 }
 
 // manifest
@@ -176,6 +176,7 @@ public abstract class CrimsonDeviceListener {
     public void onBrainWave(BrainWave wave){}    //脑电频域波段数据
     public void onAttention(float attention){}   //注意力指数
     public void onMeditation(float meditation){} //冥想指数
+    public void onMeditationStage(MeditationStage meditationStage){} //冥想状态
     public void onBlink(){} // 眨眼事件
 }
 ```
@@ -246,6 +247,13 @@ public class Orientation {
     public static final int UNKNOWN = 0;
     public static final int UPWARD = 1;   //头环戴正
     public static final int DOWNWARD = 2; //头环戴反
+}
+// 冥想状态
+public class MeditationStage {
+    public static final int active = 0; //活跃 0
+    public static final int quiet = 1;  //平静 30
+    public static final int relax = 2;  //放松 60
+    public static final int zen = 3;    //入定 80
 }
 // EEG, 默认为每秒回调5次
 public class EEG {

@@ -2,8 +2,8 @@
 
 ## Download
 
-- [SDK](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.0/ios/CrimsonSDK.xcframework.zip)
-- [Sample-CocoaPods](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.0/ios/CrimsonSDKExample.zip)
+- [SDK](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.xcframework.zip)
+- [Sample-CocoaPods](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDKExample.zip)
 - [Video](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.0.0/ios/example.mp4)
 
 ## Requirement
@@ -23,7 +23,7 @@ platform :ios, '10.0'
 
 use_frameworks!
 
-pod 'CrimsonSDK', :podspec => 'https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.0/ios/CrimsonSDK.podspec'
+pod 'CrimsonSDK', :podspec => 'https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.podspec'
 ```
 
 ### Manual
@@ -113,6 +113,7 @@ extension ScanVC: CrimsonDelegate {
     @objc optional func onBrainWave(_ wave: BrainWave)
     @objc optional func onAttention(_ attention: Float)
     @objc optional func onMeditation(_ meditation: Float)
+    @objc optional func onMeditationStage(_ meditationStage: MeditationStage)
     @objc optional func onBlink() // Eye blink
 }
 ```
@@ -188,6 +189,14 @@ extension DFUViewControler: CrimsonOtaDelegate {
     case unknown
     case upward   //Normal
     case downward //UpsideDown
+}
+
+// 冥想状态
+@objc public enum MeditationStage: Int, CaseIterable {
+    case active //活跃 0
+    case quiet  //平静 30
+    case relax  //放松 60
+    case zen    //入定 80
 }
 
 @objc public class EEG: NSObject {
