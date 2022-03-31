@@ -2,7 +2,7 @@
 
 ## Download
 
-[Sample](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.0.3/android/android_example.zip)
+[Sample](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.3/android/android_example.zip)
 
 [Video](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.0.0/android/example.mp4)
 
@@ -14,6 +14,16 @@ Android 6.0 or later
 
 ```groovy
 // build.gradle
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 31
+    }
+}
+
 repositories {
     maven {
         credentials {
@@ -24,17 +34,22 @@ repositories {
     }
 }
 
-// app/build.gradle
 dependencies {
     // import crimson-sdk from maven
-    api 'tech.brainco:crimsonsdk:1.1.1'
+    api 'tech.brainco:crimsonsdk:1.1.3'
 }
 
 // manifest
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.xxx.xxx">
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH"
+                     android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+                     android:maxSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+        
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 </manifest>
 
