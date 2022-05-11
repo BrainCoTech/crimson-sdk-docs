@@ -2,11 +2,16 @@
 
 ## [配对连接](https://www.yuque.com/docs/share/4afe9d08-cf4b-42fb-93da-0ee239830090)
 
-头环**首次连接**到新设备时，必须先切换到**配对模式**使用
+### [头环操作]
 
-- 开关机，关机状态短按电源键开机，开机状态短按电源键关机
-- 配对模式，关机状态长按电源键直至头环振动两次，此时 LED 为蓝灯快闪
-- 工作模式，开机状态默认模式，此时 LED 为蓝灯慢闪
+- 开关机，关机状态短按电源键则开机，开机状态短按电源键则关机
+- **配对**模式，长按电源键直至头环振动两次，此时前额LED为蓝灯**快**闪
+- **普通**模式，开机状态默认模式，此时前额LED为蓝灯**慢**闪
+
+### [使用步骤]
+
+- 1、连接新设备，设备切换到**配对**模式，然后开始扫描与连接
+- 2、成功配对过，设备切换到**普通**模式，然后开始扫描与连接
 
 扫描->扫描成功->连接->连接成功->配对/校验配对信息-->配对/校验配对信息成功->StartEEG
 
@@ -14,12 +19,12 @@
 if 存在配对记录
     scan->connect->validatePairInfo->
     if validatePairInfo_success: StartEEG
-    else if validatePairInfo_fail_error_code == 4: // 提示去pair
-    else //提示retry
+    else if validatePairInfo_fail_error_code == 4: // 提示需要进行配对
+    else //提示重试
 
 else
     // 提示用户切换到配对模式
-    // 可过滤掉不处于配对模式的设备
+    // 首次扫描需要过滤掉 不处于配对模式的设备
     scan->connect->pair->(if success)->存储配对记录 & StartEEG
 ```
 
