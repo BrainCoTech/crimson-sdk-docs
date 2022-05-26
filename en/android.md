@@ -55,6 +55,7 @@ dependencies {
 
 // proguard-rules.pro
 -dontwarn java.awt.*
+-keep class no.nordicsemi.android.dfu.** { *; }
 -keep class com.sun.jna.* { *; }
 -keepclassmembers class * extends com.sun.jna.* { public *; }
 ```
