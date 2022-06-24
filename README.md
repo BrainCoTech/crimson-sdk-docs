@@ -1,31 +1,11 @@
-# LANGS
-* [English](en)
-* [中文](zh)
+# 概述
 
-<!--
-* [Português](pt-br)
-* [Italiano](it)
-* [العربية](ar)
-* [azərbaycan dili](az)
-* [беларуская мова](be)
-* [català](ca)
-* [čeština, český jazyk](cs)
-* [Esperanto](eo)
-* [suomi](fi)
-* [हिन्दी, हिंदी](hi)
-* [Magyar](hu)
-* [Bahasa Indonesia](id)
-* [日本語 (にほんご)](ja)
-* [한국어, 조선어](ko)
-* [македонски јазик](mk)
-* [Nederlands](nl)
-* [język polski](pl)
-* [limba română](ro)
-* [русский язык](ru)
-* [српски језик](sr)
-* [ไทย](th)
-* [Türkçe](tr)
-* [Tiếng Việt](vi)
-* [漢語](zh-tw)
-* [中文](zh)
--->
+**CrimsonSDK 使开发者能够：**
+
+- **查看⽤户脑电的 Alpha 尖峰频率 \(仅可⽤时可获取\)**
+- **监测头环的空间运动 IMU 数据**
+- **监测⽤户脑电原始电压 EEG 数据**
+- **监测⽤户脑电频域波段能量 \(Delta, Theta, Alpha, LowBeta, HighBeta, Gamma\)**
+- **监测⽤户当前注意⼒指数 \(BrainCo 私有 AI 算法\)**
+- **监测⽤户当前冥想指数 \(BrainCo 私有 AI 算法\)**
+- **捕捉⽤户眨眼事件**

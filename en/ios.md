@@ -54,7 +54,7 @@ pod 'CrimsonSDK', :podspec => 'https://focus-resource.oss-accelerate-overseas.al
 
 ### FAQ
 
-{% page-ref page="faq.md" %}
+[FAQ](en/faq.md)
 
 ### Scan
 
