@@ -2,9 +2,9 @@
 
 ## Download
 
-[Sample](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.3/android/android_example.zip)
+[Sample](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.3/android/android_example.zip)
 
-[Video](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.0.0/android/example.mp4)
+[Video](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.0.0/android/example.mp4)
 
 ## Requirement
 

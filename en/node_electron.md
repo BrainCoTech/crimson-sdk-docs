@@ -3,8 +3,8 @@
 ## Overview
 
 - [Source](https://github.com/BrainCoTech/cmsn-electron-demo)
-- [Mac](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/node/cmsn-electron-1.0.0.dmg)
-- [Win](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/node/cmsn-electron-setup-1.0.0-x64.exe)
+- [Mac](https://app.brainco.cn/universal/crimson-sdk-prebuild/node/cmsn-electron-1.0.0.dmg)
+- [Win](https://app.brainco.cn/universal/crimson-sdk-prebuild/node/cmsn-electron-setup-1.0.0-x64.exe)
 
 ## Requirement
 

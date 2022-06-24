@@ -2,7 +2,7 @@
 
 ## Download
 
-[Download](https://focus-resource.oss-accelerate-overseas.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.0/python/python.zip)
+[Download](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.0/python/python.zip)
 
 ## Requirement
 
