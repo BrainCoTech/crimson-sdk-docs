@@ -54,7 +54,7 @@ pod 'CrimsonSDK', :podspec => 'https://focus-resource.oss-cn-beijing.aliyuncs.co
 
 ### FAQ
 
-{% page-ref page="faq.md" %}
+[FAQ](zh/faq.md)
 
 ### Scan 扫描
 

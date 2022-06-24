@@ -64,7 +64,7 @@ dependencies {
 
 ### FAQ
 
-{% page-ref page="faq.md" %}
+[FAQ](en/faq.md)
 
 ### Scan
 
