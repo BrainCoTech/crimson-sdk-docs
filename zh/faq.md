@@ -43,6 +43,6 @@ colorUnContact: 0x6E6E64 // RGB 110,110,100 配对成功
 红灯闪烁 //电量低/充电
 黄灯闪烁 //电池温度异常
 
-colorDisbaled: 0x0 // RGB 0,0,0 黑色即不显示灯光
+colorDisabled: 0x0 // RGB 0,0,0 黑色即不显示灯光
 colorContact: 0xffffff // RGB 255,255,255 佩戴通过
 ```

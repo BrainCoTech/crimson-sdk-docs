@@ -87,6 +87,7 @@ uploadFile en/python.md
 uploadFile en/node_electron.md
 uploadFile en/node.md
 
+uploadFile flutter/headband-sdk.md
 
 for res in "${result[@]}"; do
   log "$res"
