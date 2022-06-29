@@ -2,9 +2,9 @@
 
 ## Download
 
-- [下载SDK](https://focus-resource.oss-cn-beijing.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.xcframework.zip)
-- [下载Example-CocoaPods](https://focus-resource.oss-cn-beijing.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDKExample.zip)
-- [演示视频](https://focus-resource.oss-cn-beijing.aliyuncs.com/universal/crimson-sdk-prebuild/1.0.0/ios/example.mp4)
+- [下载SDK](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.xcframework.zip)
+- [下载Example-CocoaPods](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDKExample.zip)
+- [演示视频](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.0.0/ios/example.mp4)
 
 ## Requirement
 
@@ -23,13 +23,13 @@ platform :ios, '10.0'
 
 use_frameworks!
 
-pod 'CrimsonSDK', :podspec => 'https://focus-resource.oss-cn-beijing.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.podspec'
+pod 'CrimsonSDK', :podspec => 'https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.podspec'
 ```
 
 ### 手动集成
 
 - Project->Target->General->Linked Frameworks, Libraries and Embedded Content
-  ![](../.gitbook/assets/import_crimson_sdk.png)
+  ![](https://app.brainco.cn/universal/crimson-sdk-prebuild/import_crimson_sdk.png)
 
 #### Dependencies
 
@@ -52,13 +52,9 @@ pod 'CrimsonSDK', :podspec => 'https://focus-resource.oss-cn-beijing.aliyuncs.co
 
 ## Usage
 
-### FAQ
-
-[FAQ](zh/faq.md)
-
 ### Scan 扫描
 
-#### 首次配对新设备时，需要先将头环设置为 _配对_ 模式-->蓝灯快闪
+[FAQ](zh/faq.md)
 
 ```swift
 // 开启扫描
@@ -80,6 +76,8 @@ extension ScanVC: CrimsonScannerDelegate {
 ```
 
 ### Connect 连接
+
+[FAQ](zh/faq.md)
 
 ```swift
 // NOTE: 开启扫描与停止扫描要成对，连接之前需停止扫描

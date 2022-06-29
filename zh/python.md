@@ -2,13 +2,14 @@
 
 ## Download
 
-[下载 SDK 及 Example](https://focus-resource.oss-cn-beijing.aliyuncs.com/universal/crimson-sdk-prebuild/1.0.1/python/python.zip)
+[下载 SDK 及 Example](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.0.1/python/python.zip)
 
 ## Requirement
 
+- BLE 4.2 or later
 - Python 3.0 or later
 - Mac 10.15 or later
-- Windows 10 build 10.0.15063 or later
+- Windows 10 build 10.0.15063 or later, 推荐系统自带蓝⽛LMP 11.x以上固件版本，或使用USB 5.0蓝牙适配器
 
 ## Usage
 
@@ -17,19 +18,17 @@ pip3 install -r requirements.txt
 python3 gui.py //or python3 example.py
 ```
 
-### FAQ
-
-[FAQ](zh/faq.md)
-
 ### Scan 扫描
 
-#### 首次配对新设备时，需要先将头环设置为 _配对_ 模式--&gt;蓝灯快闪
+[FAQ](zh/faq.md)
 
 ```python
 CMSNSDK.start_device_scan(on_found_device)
 ```
 
 ### Connect 连接
+
+[FAQ](zh/faq.md)
 
 ```python
 print("Stop scanning for more devices")

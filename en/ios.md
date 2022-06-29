@@ -29,7 +29,7 @@ pod 'CrimsonSDK', :podspec => 'https://app.brainco.cn/universal/crimson-sdk-preb
 ### Manual
 
 - Project->Target->General->Linked Frameworks, Libraries and Embedded Content
-  ![](../.gitbook/assets/import_crimson_sdk.png)
+  ![](https://app.brainco.cn/universal/crimson-sdk-prebuild/import_crimson_sdk.png)
 
 #### Dependencies
 

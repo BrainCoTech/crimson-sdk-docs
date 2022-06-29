@@ -2,9 +2,9 @@
 
 ## Download
 
-[下载 Example](https://focus-resource.oss-cn-beijing.aliyuncs.com/universal/crimson-sdk-prebuild/1.1.3/android/android_example.zip)
+[下载 Example](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.3/android/android_example.zip)
 
-[演示视频](https://focus-resource.oss-cn-beijing.aliyuncs.com/universal/crimson-sdk-prebuild/1.0.0/android/example.mp4)
+[演示视频](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.0.0/android/example.mp4)
 
 ## Requirement
 
@@ -62,13 +62,9 @@ dependencies {
 
 ## Usage
 
-### FAQ
-
-[FAQ](zh/faq.md)
-
 ### Scan 扫描
 
-#### 首次配对新设备时，需要先将头环设置为 _配对_ 模式--&gt;蓝灯快闪
+[FAQ](zh/faq.md)
 
 ```java
 // Permissions check
@@ -166,6 +162,8 @@ CrimsonSDK.stopScan();
 ```
 
 ### Connect 连接
+
+[FAQ](zh/faq.md)
 
 ```java
 listener = new DeviceListener();
