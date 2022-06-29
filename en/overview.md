@@ -1,6 +1,6 @@
 # Feature
 
-- BLE Connect
+- BLE
 - EEG
 - IMU
 - BrainWave \(Delta, Theta, Alpha, LowBeta, HighBeta, Gamma\)
