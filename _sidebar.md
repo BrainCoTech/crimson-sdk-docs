@@ -3,26 +3,27 @@
 <!-- * [Home](/)
 * [Guide](README.md "The greatest guide in the world") -->
 
-* [English](/en/README.md)
-  * [Feature](en/feature.md)
+* [English](/en/overview.md)
   * [FAQ](en/faq.md)
+  * [Android](en/android.md)
+  * [iOS](en/ios.md)
   * [C](en/c.md)
   * [C#](en/csharp.md)
   * [Python](en/python.md)
   * [NodeJS](en/node.md)
   * [Electron](en/node_electron.md)
-  * [Android](en/android.md)
-  * [iOS](en/ios.md)
+  
 * [中文](zh/README.md)
   * [概述](zh/overview.md)
   * [核⼼功能描述](zh/core_function.md)
   * [常见问题说明](zh/faq.md)
+  * [Android](zh/android.md)
+  * [iOS](zh/ios.md)
   * [C](zh/c.md)
+  * [C#](zh/csharp.md)
   * [Python](zh/python.md)
   * [NodeJS](zh/node.md)
   * [Electron](zh/node_electron.md)
-  * [Android](zh/android.md)
-  * [iOS](zh/ios.md)
 
 <!-- 
 * [Português](pt-br)

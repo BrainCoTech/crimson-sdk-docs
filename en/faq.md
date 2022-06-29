@@ -1,15 +1,11 @@
 # FAQ
 
-> The windows version has a glitch that will scan all BLE devices instead of our BrainCo headbands.
->
-> Make sure you use a BLE enabled laptop. MacOS is recommended.
->
-> When using the headband for the first time, your laptop should be paired with the device.
->
-> Long press the button for 3 seconds, then LED light will start to blink quickly in blue.
->
+> Make sure you use a BLE enabled laptop/Phone. iOS/Android/MacOS is recommended.
+> When using the device for the first time, your laptop/Phone should be paired with the device, and using device next time in normal mode
 
-- switch crimson to pairing mode which LED flashing fast when first connect crimson and device
-- switch crimson to noraml mode which LED flashing slow when pair success
+- press shortly the power button to turn it on, and press shortly the power button again to turn it off.
 
-scan->connect->pair->StartEEG
+- switch device to pairing mode by long press the power button until the device vibrates twice while the LED flashing quickly continous,
+otherwise, the device will in normal mode while the LED flashing slowly like breathing.
+
+- one device only support connect/pair with one APP at the same time.
