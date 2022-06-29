@@ -17,4 +17,4 @@
 
 ## Preview
 
-[Preview](<img width="400px" src="https://focus-resource.oss-accelerate.aliyuncs.com/universal/crimson-sdk-prebuild/node/cmsn-electron.png"/>)
+![](https://app.brainco.cn/universal/crimson-sdk-prebuild/node/cmsn-electron.png)

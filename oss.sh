@@ -62,12 +62,14 @@ log() {
 }
 
 uploadFile _sidebar.md
+uploadFile README.md
 uploadFile index.html
 
+uploadFile zh/_sidebar.md
 uploadFile zh/overview.md
-uploadFile zh/README.md
-uploadFile zh/core_function.md
 uploadFile zh/faq.md
+uploadFile zh/core_function.md
+uploadFile zh/README.md
 uploadFile zh/android.md
 uploadFile zh/ios.md
 uploadFile zh/c.md
@@ -76,6 +78,7 @@ uploadFile zh/python.md
 uploadFile zh/node_electron.md
 uploadFile zh/node.md
 
+uploadFile en/_sidebar.md
 uploadFile en/overview.md
 uploadFile en/faq.md
 uploadFile en/README.md
@@ -86,6 +89,7 @@ uploadFile en/csharp.md
 uploadFile en/python.md
 uploadFile en/node_electron.md
 uploadFile en/node.md
+uploadFile en/chrome_extension.md
 
 uploadFile flutter/headband-sdk.md
 

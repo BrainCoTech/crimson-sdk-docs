@@ -1,8 +1,3 @@
-<!-- docs/_sidebar.md -->
-
-<!-- * [Home](/)
-* [Guide](README.md "The greatest guide in the world") -->
-
 * [English](/en/overview.md)
   * [FAQ](en/faq.md)
   * [Android](en/android.md)
@@ -12,7 +7,8 @@
   * [Python](en/python.md)
   * [NodeJS](en/node.md)
   * [Electron](en/node_electron.md)
-  
+  * [Chrome Extension](en/chrome_extension.md)
+
 * [中文](zh/README.md)
   * [概述](zh/overview.md)
   * [核⼼功能描述](zh/core_function.md)
