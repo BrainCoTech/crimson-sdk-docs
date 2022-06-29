@@ -24,6 +24,7 @@
   * [Python](zh/python.md)
   * [NodeJS](zh/node.md)
   * [Electron](zh/node_electron.md)
+  * [Flutter](flutter/headband-sdk.md)
 
 <!-- 
 * [Português](pt-br)
