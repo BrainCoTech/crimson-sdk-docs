@@ -28,7 +28,7 @@ repositories {
     maven {
         credentials {
             username 'maven-read'
-            password 'tBauTKVo6IqiKvHd'
+            password 'yC2bCzx3UoaBTIC8'
         }
         url = "https://nexus.ci.brainco.cn/repository/maven-public"
     }
@@ -190,7 +190,6 @@ public abstract class CrimsonDeviceListener {
     public void onBrainWave(BrainWave wave){}
     public void onAttention(float attention){}
     public void onMeditation(float meditation){}
-    public void onMeditationStage(MeditationStage meditationStage){}
     public void onBlink(){} // eye blink
 }
 ```
@@ -260,13 +259,6 @@ public class Orientation {
     public static final int UNKNOWN = 0;
     public static final int UPWARD = 1;   //Normal
     public static final int DOWNWARD = 2; //UpsideDown
-}
-
-public class MeditationStage {
-    public static final int active = 0; //0
-    public static final int quiet = 1;  //30
-    public static final int relax = 2;  //60
-    public static final int zen = 3;    //80
 }
 
 public class EEG {
