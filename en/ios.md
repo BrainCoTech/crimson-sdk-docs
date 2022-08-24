@@ -113,7 +113,6 @@ extension ScanVC: CrimsonDelegate {
     @objc optional func onBrainWave(_ wave: BrainWave)
     @objc optional func onAttention(_ attention: Float)
     @objc optional func onMeditation(_ meditation: Float)
-    @objc optional func onMeditationStage(_ meditationStage: MeditationStage)
     @objc optional func onBlink() // Eye blink
 }
 ```
@@ -189,14 +188,6 @@ extension DFUViewControler: CrimsonOtaDelegate {
     case unknown
     case upward   //Normal
     case downward //UpsideDown
-}
-
-// 冥想状态
-@objc public enum MeditationStage: Int, CaseIterable {
-    case active //活跃 0
-    case quiet  //平静 30
-    case relax  //放松 60
-    case zen    //入定 80
 }
 
 @objc public class EEG: NSObject {
