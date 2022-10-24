@@ -1,4 +1,4 @@
-# CrimsonSDK V1.1.3
+# CrimsonSDK V1.3.0
 
 CrimsonSDK 是一款针对Focus系列脑电设备，供您开发适用于多平台应用的开发者工具包
 

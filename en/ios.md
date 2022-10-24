@@ -2,9 +2,9 @@
 
 ## Download
 
-- [SDK](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.xcframework.zip)
-- [Sample-CocoaPods](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDKExample.zip)
-- [Video](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.0.0/ios/example.mp4)
+- [SDK](https://oss.brainco.cn/universal/crimson-sdk-prebuild/ios/1.3.0/CrimsonSDK.xcframework.zip)
+- [Sample-CocoaPods](https://oss.brainco.cn/universal/crimson-sdk-prebuild/ios/1.3.0/CrimsonSDKExample.zip)
+- [Video](https://oss.brainco.cn/universal/crimson-sdk-prebuild/ios/1.3.0/example.mp4)
 
 ## Requirement
 
@@ -23,13 +23,13 @@ platform :ios, '10.0'
 
 use_frameworks!
 
-pod 'CrimsonSDK', :podspec => 'https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.podspec'
+pod 'CrimsonSDK', :podspec => 'https://oss.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.podspec'
 ```
 
 ### Manual
 
 - Project->Target->General->Linked Frameworks, Libraries and Embedded Content
-  ![](https://app.brainco.cn/universal/crimson-sdk-prebuild/import_crimson_sdk.png)
+  ![](https://oss.brainco.cn/universal/crimson-sdk-prebuild/import_crimson_sdk.png)
 
 #### Dependencies
 
@@ -113,7 +113,6 @@ extension ScanVC: CrimsonDelegate {
     @objc optional func onBrainWave(_ wave: BrainWave)
     @objc optional func onAttention(_ attention: Float)
     @objc optional func onMeditation(_ meditation: Float)
-    @objc optional func onBlink() // Eye blink
 }
 ```
 
