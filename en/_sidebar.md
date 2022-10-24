@@ -8,3 +8,4 @@
   * [NodeJS](en/node.md)
   * [Electron](en/node_electron.md)
   * [Chrome Extension](en/chrome_extension.md)
+  * [Flutter](en/flutter.md)

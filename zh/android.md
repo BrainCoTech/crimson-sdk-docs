@@ -2,9 +2,9 @@
 
 ## Download
 
-[下载 Example](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.3/android/android_example.zip)
+[下载 Example](https://oss.brainco.cn/universal/crimson-sdk-prebuild/android/1.3.0/android_example.zip)
 
-[演示视频](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.0.0/android/example.mp4)
+[演示视频](https://oss.brainco.cn/universal/crimson-sdk-prebuild/android/example.mp4)
 
 ## Requirement
 
@@ -36,7 +36,7 @@ repositories {
 
 dependencies {
     // import crimson-sdk from maven
-    api 'tech.brainco:crimsonsdk:1.1.3'
+    api 'tech.brainco:crimsonsdk:1.3.0'
 }
 
 // manifest

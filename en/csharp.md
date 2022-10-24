@@ -2,7 +2,7 @@
 
 ## Download
 
-[Download](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.0/csharp/cs.zip)
+[Download](https://oss.brainco.cn/universal/crimson-sdk-prebuild/1.1.0/csharp/cs.zip)
 
 ## Requirement
 

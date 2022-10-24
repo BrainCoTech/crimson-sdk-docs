@@ -28,7 +28,7 @@ else
     scan->connect->pair->(if success)->存储配对记录 & StartEEG
 ```
 
-## [蓝牙脑电设备在Windows上的使用说明](https://app.brainco.cn/docs/crimson-sdk/%E8%93%9D%E7%89%99%E8%84%91%E7%94%B5%E8%AE%BE%E5%A4%87%E5%9C%A8Windows%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.pdf)
+## [蓝牙脑电设备在Windows上的使用说明](https://oss.brainco.cn/docs/crimson-sdk/%E8%93%9D%E7%89%99%E8%84%91%E7%94%B5%E8%AE%BE%E5%A4%87%E5%9C%A8Windows%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.pdf)
 
 ## [LED 灯光](https://www.yuque.com/docs/share/a0cee022-8f4e-4f06-9221-e05cfec2b608)
 

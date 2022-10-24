@@ -77,6 +77,7 @@ uploadFile zh/csharp.md
 uploadFile zh/python.md
 uploadFile zh/node_electron.md
 uploadFile zh/node.md
+uploadFile zh/flutter.md
 
 uploadFile en/_sidebar.md
 uploadFile en/overview.md
@@ -90,6 +91,7 @@ uploadFile en/python.md
 uploadFile en/node_electron.md
 uploadFile en/node.md
 uploadFile en/chrome_extension.md
+uploadFile en/flutter.md
 
 uploadFile flutter/headband-sdk.md
 

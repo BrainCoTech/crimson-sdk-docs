@@ -2,9 +2,9 @@
 
 ## Download
 
-- [下载SDK](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.xcframework.zip)
-- [下载Example-CocoaPods](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDKExample.zip)
-- [演示视频](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.0.0/ios/example.mp4)
+- [下载SDK](https://oss.brainco.cn/universal/crimson-sdk-prebuild/ios/1.3.0/CrimsonSDK.xcframework.zip)
+- [下载Example-CocoaPods](https://oss.brainco.cn/universal/crimson-sdk-prebuild/ios/1.3.0/CrimsonSDKExample.zip)
+- [演示视频](https://oss.brainco.cn/universal/crimson-sdk-prebuild/ios/1.3.0/example.mp4)
 
 ## Requirement
 
@@ -23,13 +23,13 @@ platform :ios, '10.0'
 
 use_frameworks!
 
-pod 'CrimsonSDK', :podspec => 'https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.podspec'
+pod 'CrimsonSDK', :podspec => 'https://oss.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.podspec'
 ```
 
 ### 手动集成
 
 - Project->Target->General->Linked Frameworks, Libraries and Embedded Content
-  ![](https://app.brainco.cn/universal/crimson-sdk-prebuild/import_crimson_sdk.png)
+  ![](https://oss.brainco.cn/universal/crimson-sdk-prebuild/import_crimson_sdk.png)
 
 #### Dependencies
 
