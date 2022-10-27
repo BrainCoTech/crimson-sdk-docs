@@ -4,7 +4,7 @@
 
 ```yaml
 headband_sdk:
-  version: 3.0.2
+  version: 3.0.4
   hosted:
     name: headband_sdk
     url: https://dart-pub.brainco.cn
