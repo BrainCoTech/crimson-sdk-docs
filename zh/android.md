@@ -36,7 +36,7 @@ repositories {
 
 dependencies {
     // import crimson-sdk from maven
-    api 'tech.brainco:crimsonsdk:1.3.0'
+    api 'tech.brainco:crimsonsdk:1.3.1'
 }
 
 // manifest
@@ -187,6 +187,7 @@ public abstract class CrimsonDeviceListener {
     public void onOrientationChange(int orientation){} // 佩戴方向
     public void onIMUData(IMU data){} // 陀螺仪数据
     public void onEEGData(EEG data){} // 脑电EEG数据
+    public void onRawEEGData(EEG data){} // 脑电EEG数据，未去除噪声
     public void onBrainWave(BrainWave wave){}    //脑电频域波段数据
     public void onAttention(float attention){}   //注意力指数
     public void onMeditation(float meditation){} //冥想指数
