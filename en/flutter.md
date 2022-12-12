@@ -3,10 +3,10 @@
 ## Installation
 
 ```yaml
-headband_sdk:
-  version: 3.0.4
+crimson_sdk:
+  version: 0.0.1
   hosted:
-    name: headband_sdk
+    name: crimson_sdk
     url: https://dart-pub.brainco.cn
 ```
 
@@ -14,7 +14,6 @@ headband_sdk:
 
 ```dart
 HeadbandConfig.logLevel = Level.INFO;
-HeadbandConfig.availableType = HeadbandAvailableType.crimson;
 await HeadbandManager.init();
 ```
 
@@ -24,7 +23,6 @@ await HeadbandManager.init();
 
 ```dart
 // Start Scan Crimson Devices
-await HeadbandManager.setScanMode(HeadbandScanMode.crimson);
 final deviceInfoPlugin = DeviceInfoPlugin();
 if (Platform.isAndroid) {
     final androidInfo = await deviceInfoPlugin.androidInfo;
@@ -41,17 +39,17 @@ if (Platform.isAndroid) {
 } else if (Platform.isIOS) {
     await [Permission.bluetooth].request();
 }
-await HeadbandManager.startScan();
+await HeadbandManager.bleScanner.startScan();
 ```
 
 ```dart
 // Stop Scan Crimson Devices
-await HeadbandManager.stopScan();
+await HeadbandManager.bleScanner.stopScan();
 ```
 
 ```dart
 // Scanned Devices
-HeadbandManager.scanner.onFoundDevices.map((event) => event as List<ScanResult>)
+HeadbandManager.bleScanner.onFoundDevices.map((event) => event as List<ScanResult>)
 ```
 
 ## Pair
@@ -60,14 +58,13 @@ HeadbandManager.scanner.onFoundDevices.map((event) => event as List<ScanResult>)
 
 ```dart
 try {
-    await HeadbandManager.stopScan();
     await EasyLoading.show(status: 'pairing...');
     await HeadbandManager.bindCrimson(result);
     await EasyLoading.showSuccess('pair success');
 } catch (e, _) {
     loggerExample.i('$e');
     await EasyLoading.showError('pair failed !!');
-    await HeadbandManager.startScan(); //restart scan
+    await HeadbandManager.bleScanner.startScan();; //restart scan
 }
 ```
 
