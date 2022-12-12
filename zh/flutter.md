@@ -3,10 +3,10 @@
 ## Installation
 
 ```yaml
-headband_sdk:
-  version: 3.0.4
+crimson_sdk:
+  version: 0.0.1
   hosted:
-    name: headband_sdk
+    name: crimson_sdk
     url: https://dart-pub.brainco.cn
 ```
 
@@ -14,7 +14,6 @@ headband_sdk:
 
 ```dart
 HeadbandConfig.logLevel = Level.INFO;
-HeadbandConfig.availableType = HeadbandAvailableType.crimson;
 await HeadbandManager.init();
 ```
 
@@ -24,7 +23,6 @@ await HeadbandManager.init();
 
 ```dart
 //开始扫描设备
-await HeadbandManager.setScanMode(HeadbandScanMode.crimson);
 final deviceInfoPlugin = DeviceInfoPlugin();
 if (Platform.isAndroid) {
     final androidInfo = await deviceInfoPlugin.androidInfo;
@@ -41,12 +39,12 @@ if (Platform.isAndroid) {
 } else if (Platform.isIOS) {
     await [Permission.bluetooth].request();
 }
-await HeadbandManager.startScan();
+await HeadbandManager.bleScanner.startScan();
 ```
 
 ```dart
 //停止扫描设备
-await HeadbandManager.stopScan();
+await HeadbandManager.bleScanner.stopScan();
 ```
 
 ```dart
@@ -60,14 +58,13 @@ HeadbandManager.scanner.onFoundDevices.map((event) => event as List<ScanResult>)
 
 ```dart
 try {
-    await HeadbandManager.stopScan();
     await EasyLoading.show(status: '配对中...');
     await HeadbandManager.bindCrimson(result);
     await EasyLoading.showSuccess('配对成功!');
 } catch (e, _) {
     loggerExample.i('$e');
     await EasyLoading.showError('配对失败');
-    await HeadbandManager.startScan(); //restart scan
+    await HeadbandManager.bleScanner.startScan(); //restart scan
 }
 ```
 
@@ -123,49 +120,78 @@ state.isAnalyzed
 bool _otaRunning = false;
 Future startDFU() async {
   if (_otaRunning) return;
-  if (!(HeadbandManager.headband is CrimsonHeadband)) return;
+  if (HeadbandManager.headband is! CrimsonDevice) return;
   _otaRunning = true;
-  final headband = HeadbandManager.headband as CrimsonHeadband;
+  final headband = HeadbandManager.headband as CrimsonDevice;
   try {
-    final url = 'https://oss.brainco.cn/crimson-firmware/updates/FW_DFU_Crimson_V1.1.6.zip';
-    final storageDir = await getApplicationSupportDirectory();
-    final dstPath = storageDir.path + '/rom.zip';
-    await NetworkService.rest.download(url, dstPath,
+    final filePath = DeviceController.filePath.value;
+    if (filePath.isNotEmpty) {
+      await _startDfu(headband, filePath);
+    } else {
+      const version = '1.1.6';
+      const url = 'https://oss.brainco.cn/crimson-firmware/updates/FW_DFU_Crimson_V$version.zip';
+      loggerExample.i('download url=$url');
+      final storageDir = await getApplicationSupportDirectory();
+      final dstPath = '${storageDir.path}/firmware_ota_v$version.zip';
+
+      Get.find<DeviceController>().dfuProgress.value = '';
+      await Dio().download(
+        url,
+        dstPath,
         onReceiveProgress: (count, total) async {
-      final progress = (count * 100.0 / total).toStringAsFixed(1);
-      loggerExample.i('download firmware progress = $progress');
-      if (count == total) {
-        headband.startDfu(
-            dstPath,
-            DefaultDfuProgressListenerAdapter(
-                onDfuCompletedHandle: (String deviceAddress) async {
-                loggerExample.i('[$deviceAddress] DFU completed ');
-                await HeadbandManager.onOTADone();
-                _otaRunning = false;
-            }, onDfuAbortedHandle: (String deviceAddress) async {
-                loggerExample.i('[$deviceAddress] DFU aborted ');
-                await HeadbandManager.onOTADone();
-                _otaRunning = false;
-            }, onErrorHandle: (String deviceAddress, int error, int errorType,
-                    String message) {
-                loggerExample.w('[$deviceAddress] DFU error = $message');
-            }, onProgressChangedHandle: (
-                deviceAddress,
-                percent,
-                speed,
-                avgSpeed,
-                currentPart,
-                artsTotal,
-            ) {
-                loggerExample
-                    .i('[$deviceAddress] DFU progress = $percent, speed=$speed');
-            })
-        );
-      }
-    });
+          final progress = (count * 100.0 / total).toStringAsFixed(1);
+          loggerExample.i('download firmware progress = $progress');
+          Get.find<DeviceController>().dfuProgress.value =
+              'download firmware progress = $progress';
+          if (count == total) {
+            await _startDfu(headband, dstPath);
+          }
+        },
+      );
+    }
   } catch (e) {
     loggerExample.e('download firmware error, $e');
+    Get.find<DeviceController>().dfuProgress.value = 'download firmware error';
     _otaRunning = false;
   }
+}
+
+Future _startDfu(CrimsonDevice headband, String dstPath) async {
+  headband.startDfu(
+    dstPath,
+    DefaultDfuProgressListenerAdapter(
+      onDfuCompletedHandle: (String deviceAddress) async {
+        loggerExample.i('[$deviceAddress] DFU completed');
+        Get.find<DeviceController>().dfuProgress.value = 'DFU completed';
+        await HeadbandManager.onOTADone();
+        _otaRunning = false;
+      },
+      onDfuAbortedHandle: (String deviceAddress) async {
+        loggerExample.i('[$deviceAddress] DFU aborted');
+        Get.find<DeviceController>().dfuProgress.value = 'DFU aborted';
+        await HeadbandManager.onOTADone();
+        _otaRunning = false;
+      },
+      onErrorHandle:
+          (String deviceAddress, int error, int errorType, String message) {
+        loggerExample.w('[$deviceAddress] DFU error = $message');
+        Get.find<DeviceController>().dfuProgress.value = 'DFU error = $message';
+      },
+      onProgressChangedHandle: (
+        deviceAddress,
+        percent,
+        speed,
+        avgSpeed,
+        currentPart,
+        artsTotal,
+      ) {
+        final speedText = speed.toStringAsFixed(1);
+        loggerExample
+            .i('[$deviceAddress] DFU progress = $percent, speed=$speedText');
+        Get.find<DeviceController>().dfuProgress.value =
+            'DFU progress = $percent, speed=$speedText';
+      },
+    ),
+  );
 }
 ```
