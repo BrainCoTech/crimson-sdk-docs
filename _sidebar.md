@@ -8,6 +8,7 @@
   * [NodeJS](en/node.md)
   * [Electron](en/node_electron.md)
   * [Chrome Extension](en/chrome_extension.md)
+  * [Flutter](en/flutter.md)
 
 * [中文](zh/README.md)
   * [概述](zh/overview.md)
@@ -20,7 +21,7 @@
   * [Python](zh/python.md)
   * [NodeJS](zh/node.md)
   * [Electron](zh/node_electron.md)
-  * [Flutter](flutter/headband-sdk.md)
+  * [Flutter](zh/flutter.md)
 
 <!-- 
 * [Português](pt-br)

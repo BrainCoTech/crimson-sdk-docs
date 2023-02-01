@@ -93,8 +93,6 @@ uploadFile en/node.md
 uploadFile en/chrome_extension.md
 uploadFile en/flutter.md
 
-uploadFile flutter/headband-sdk.md
-
 for res in "${result[@]}"; do
   log "$res"
 done

@@ -17,7 +17,7 @@ HeadbandConfig.logLevel = Level.INFO;
 await HeadbandManager.init();
 ```
 
-## Scan-扫描
+## Scan
 
 [FAQ](zh/faq.md)
 
@@ -81,7 +81,7 @@ enum HeadbandState {
   /// 
   connecting,
 
-  /// 已连接
+  /// device connected
   connected,
 
   /// device adjust fit
