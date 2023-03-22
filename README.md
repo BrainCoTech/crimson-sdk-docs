@@ -1,6 +1,19 @@
-# CrimsonSDK V1.3.0
+# CrimsonSDK Docs
 
-CrimsonSDK 是一款针对Focus系列脑电设备，供您开发适用于多平台应用的开发者工具包
+CrimsonSDK Docs
 
-- 通过SDK提供的API接⼝，您可以轻松访问⽤户的脑电原始数据，脑波频域数据，注意⼒指数， 冥想指数和空间运动数据
-- ⽀持Android/iOS/macOS/Windows，辅之以低层语⾔实现的⾼性能AI算法，在实现多种脑电数据监听功能的同时，只为应用带来极⼩量的附增运算
+CrimsonSDK is a powerful, easy-to-use, and free SDK for creating EEG attention & meditation apps.
+
+```shell
+pnpm install
+pnpm build
+pnpm docs:dev
+
+pnpm docs:build
+open docs/.vuepress/dist
+```
+
+> References
+
+- [docsify](<https://docsify.js.org>)
+- [vuepress](<https://v2.vuepress.vuejs.org>)
