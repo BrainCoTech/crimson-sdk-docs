@@ -2,7 +2,7 @@
 
 ## 下载
 
-[下载 SDK 及 Example](https://oss.brainco.cn/universal/crimson-sdk-prebuild/python/1.3.0/python-example.zip)
+[下载 SDK 及 Example](https://app.brainco.cn/universal/crimson-sdk-prebuild/python/1.3.0/python-example.zip)
 
 ## 系统要求
 

@@ -2,7 +2,7 @@
 
 ## 下载
 
-[下载](https://oss.brainco.cn/universal/crimson-sdk-prebuild/1.1.0/csharp/cs.zip)
+[下载](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.1.0/csharp/cs.zip)
 
 ## 系统要求
 

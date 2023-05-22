@@ -2,7 +2,7 @@
 
 ## 下载
 
-[下载 Windows SDK 及 Example](https://oss.brainco.cn/universal/crimson-sdk-prebuild/1.0.3/win/win.rar)
+[下载 Windows SDK 及 Example](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.0.3/win/win.rar)
 
 ## 系统要求
 

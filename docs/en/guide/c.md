@@ -2,7 +2,7 @@
 
 ## Download
 
-[Sample](https://oss.brainco.cn/universal/crimson-sdk-prebuild/1.0.3/win/win.rar)
+[Sample](https://app.brainco.cn/universal/crimson-sdk-prebuild/1.0.3/win/win.rar)
 
 ## Requirement
 

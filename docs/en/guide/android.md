@@ -2,9 +2,9 @@
 
 ## Download
 
-[Sample](https://oss.brainco.cn/universal/crimson-sdk-prebuild/android/1.3.0/android_example.zip)
+[Sample](https://app.brainco.cn/universal/crimson-sdk-prebuild/android/1.3.0/android_example.zip)
 
-[Video](https://oss.brainco.cn/universal/crimson-sdk-prebuild/android/example.mp4)
+[Video](https://app.brainco.cn/universal/crimson-sdk-prebuild/android/example.mp4)
 
 ## Requirement
 

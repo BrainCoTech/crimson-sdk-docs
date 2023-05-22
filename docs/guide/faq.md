@@ -29,7 +29,7 @@
 设备只能同时连接到一个终端，如果设备已经连接到其他终端，那么您将无法扫描连接到该设备
 :::
 
-## [在Windows上的使用说明](https://oss.brainco.cn/docs/crimson-sdk/%E8%93%9D%E7%89%99%E8%84%91%E7%94%B5%E8%AE%BE%E5%A4%87%E5%9C%A8Windows%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.pdf)
+## [在Windows上的使用说明](https://app.brainco.cn/docs/crimson-sdk/%E8%93%9D%E7%89%99%E8%84%91%E7%94%B5%E8%AE%BE%E5%A4%87%E5%9C%A8Windows%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.pdf)
 
 ## Windows下无法扫描到设备
 

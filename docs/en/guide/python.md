@@ -2,7 +2,7 @@
 
 ## Download
 
-[Download](https://oss.brainco.cn/universal/crimson-sdk-prebuild/python/1.3.0/python-example.zip)
+[Download](https://app.brainco.cn/universal/crimson-sdk-prebuild/python/1.3.0/python-example.zip)
 
 ## Requirement
 
@@ -19,7 +19,6 @@ python3 gui.py //or python3 example.py
 ```
 
 ### FAQ
-
 
 ### Scan
 

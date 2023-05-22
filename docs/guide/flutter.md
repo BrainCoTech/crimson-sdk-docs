@@ -137,7 +137,7 @@ Future startDFU() async {
       await _startDfu(headband, filePath);
     } else {
       const version = '1.1.6';
-      const url = 'https://oss.brainco.cn/crimson-firmware/updates/FW_DFU_Crimson_V$version.zip';
+      const url = 'https://app.brainco.cn/crimson-firmware/updates/FW_DFU_Crimson_V$version.zip';
       loggerExample.i('download url=$url');
       final storageDir = await getApplicationSupportDirectory();
       final dstPath = '${storageDir.path}/firmware_ota_v$version.zip';

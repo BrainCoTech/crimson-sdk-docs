@@ -2,7 +2,7 @@
 
 ## Download
 
-[Sample](https://oss.brainco.cn/universal/crimson-sdk-prebuild/chrome/chrome.zip)
+[Sample](https://app.brainco.cn/universal/crimson-sdk-prebuild/chrome/chrome.zip)
 
 ## Requirement
 
