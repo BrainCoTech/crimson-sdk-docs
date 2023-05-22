@@ -2,13 +2,13 @@
 
 ## 下载
 
-- [下载SDK](https://oss.brainco.cn/universal/crimson-sdk-prebuild/ios/1.3.0/CrimsonSDK.xcframework.zip)
-- [下载Example-CocoaPods](https://oss.brainco.cn/universal/crimson-sdk-prebuild/ios/1.3.0/CrimsonSDKExample.zip)
+- [下载SDK](https://oss.brainco.cn/universal/crimson-sdk-prebuild/ios/1.3.3/CrimsonSDK.xcframework.zip)
+- [下载Example-CocoaPods](https://oss.brainco.cn/universal/crimson-sdk-prebuild/ios/1.3.3/CrimsonSDKExample.zip)
 - [演示视频](https://oss.brainco.cn/universal/crimson-sdk-prebuild/ios/1.3.0/example.mp4)
 
 ## 系统要求
 
-- iOS 10.0+
+- iOS 12.0+
 - arm64
 - BitCode Disabled
 
@@ -19,11 +19,18 @@
 You can use CocoaPods to install **CrimsonSDK** by adding it to your Podfile:
 
 ```ruby
-platform :ios, '10.0'
+source 'https://gitlab.brainco.cn/ios/specs.git'
+# login with Gitlab
+# account: external
+# pwd: 9dHmY1BvV&CW%K%Q     
 
 use_frameworks!
 
-pod 'CrimsonSDK', :podspec => 'https://oss.brainco.cn/universal/crimson-sdk-prebuild/1.1.1/ios/CrimsonSDK.podspec'
+inhibit_all_warnings!
+
+platform :ios, '12.0'
+
+pod 'CrimsonSDK', '~> 1.3.3'
 ```
 
 ### 手动集成

@@ -8,6 +8,12 @@ crimson_sdk:
   hosted:
     name: crimson_sdk
     url: https://dart-pub.brainco.cn
+
+# https://dart.dev/tools/pub/cmd/pub-token
+
+# login with Gitlab
+# account: external
+# pwd: 9dHmY1BvV&CW%K%Q         
 ```
 
 ## Init

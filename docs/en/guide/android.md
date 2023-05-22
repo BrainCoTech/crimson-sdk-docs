@@ -36,7 +36,7 @@ repositories {
 
 dependencies {
     // import crimson-sdk from maven
-    api 'tech.brainco:crimsonsdk:1.3.1'
+    api 'tech.brainco:crimsonsdk:1.3.2'
 }
 
 // manifest
