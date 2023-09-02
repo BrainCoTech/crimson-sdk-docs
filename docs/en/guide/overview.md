@@ -10,7 +10,7 @@ when the user wears the Focus portable EEG device and the electrodes are in good
 | EEG data | Voltage difference between forehead Fp1 and Fp2 |
 | ---- | ---- |
 | Value range | -120~120μV, influence by EOG and motion signals, value range will at -150~150μV |
-| SampleRate | 256HZ |
+| SampleRate | 250HZ |
 
 ## EEG BrainWave
 
