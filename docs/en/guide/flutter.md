@@ -1,26 +1,49 @@
 # Flutter
 
+## Download
+
+[Apk](https://app.brainco.cn/zen/android/apk/oxyzen-demo-0.0.1-profile.apk)
+
+[Example](<https://github.com/BrainCoTech/bci_device_sdk_example>)
+
+## Requirements
+
+- BLE 5.0
+- iOS 12.0+
+- Android 5.0+
+- Mac 10.15+
+- Windows 10 build 10.0.15063 or later
+
 ## Installation
 
 ```yaml
-crimson_sdk:
-  version: 0.0.1
+# login with Gitlab, account: external, pwd: 9dHmY1BvV&CW%K%Q
+libcmsn:
+  version: 1.4.9
   hosted:
-    name: crimson_sdk
-    url: https://dart-pub.brainco.cn
-
-# https://dart.dev/tools/pub/cmd/pub-token
-
-# login with Gitlab
-# account: external
-# pwd: 9dHmY1BvV&CW%K%Q         
+    name: libcmsn
+    url: https://dart-pub.brainco.cn 
 ```
+
+[pub-token](<https://dart.dev/tools/pub/cmd/pub-token>)
+
+```shell
+dart pu
 
 ## Init
 
 ```dart
-HeadbandConfig.logLevel = Level.INFO;
-await HeadbandManager.init();
+BciDevicePluginRegistry.register(CrimsonPluginRegistry());
+await AppLogger.init(level: Level.INFO);
+loggerApp.i('------------------initBCIDeviceSdk, init------------------');
+loggerApp.i('-----crimson version=${getCrimsonSDKVersion()}-----');
+BciDeviceConfig.setAvailableModes({
+  BciDeviceDataMode.attention,
+  BciDeviceDataMode.meditation,
+  BciDeviceDataMode.drowsiness,
+  BciDeviceDataMode.stress,
+});
+await BciDeviceManager.init();
 ```
 
 ## Scan
@@ -31,31 +54,30 @@ if the device cannot be scanned, or pair failed, please check [Instructions](./f
 // Start Scan Crimson Devices
 final deviceInfoPlugin = DeviceInfoPlugin();
 if (Platform.isAndroid) {
-    final androidInfo = await deviceInfoPlugin.androidInfo;
-    if (androidInfo.version.sdkInt >= 31) {
-    loggerExample.i('request Permission.bluetoothScan & bluetoothConnect');
+  final androidInfo = await deviceInfoPlugin.androidInfo;
+  if (androidInfo.version.sdkInt >= 31) {
+    loggerApp.i('request Permission.bluetoothScan & bluetoothConnect');
     await [
-        Permission.locationWhenInUse,
-        Permission.bluetoothScan,
-        Permission.bluetoothConnect
+      Permission.bluetoothScan,
+      Permission.bluetoothConnect
     ].request();
-    } else {
+  } else {
     await [Permission.locationWhenInUse].request();
-    }
-} else if (Platform.isIOS) {
-    await [Permission.bluetooth].request();
+  }
+} else if (Platform.isIOS || Platform.isWindows) {
+  await [Permission.bluetooth].request();
 }
-await HeadbandManager.bleScanner.startScan();
+await BleScanner.instance.startScan();
 ```
 
 ```dart
 // Stop Scan Crimson Devices
-await HeadbandManager.bleScanner.stopScan();
+await BleScanner.instance.stopScan();
 ```
 
 ```dart
 // Scanned Devices
-HeadbandManager.bleScanner.onFoundDevices.map((event) => event as List<ScanResult>)
+BleScanner.instance.onFoundDevices.map((e) => e as List<ScanResult>)
 ```
 
 ## Pair
@@ -65,56 +87,130 @@ if the device cannot be scanned, or pair failed, please check [Instructions](./f
 ```dart
 try {
     await EasyLoading.show(status: 'pairing...');
-    await HeadbandManager.bindCrimson(result);
+    await BciDeviceManager.bindBleScanResult(result);
     await EasyLoading.showSuccess('pair success');
 } catch (e, _) {
     loggerExample.i('$e');
     await EasyLoading.showError('pair failed !!');
-    await HeadbandManager.bleScanner.startScan();; //restart scan
+    await BleScanner.instance.startScan();; //restart scan
 }
 ```
 
 ## Device State & Stream
 
 ```dart
-HeadbandProxy.instance.id
-HeadbandProxy.instance.name
-HeadbandProxy.instance.state
-enum HeadbandState {
-  /// 
+BciDeviceProxy.instance.id
+BciDeviceProxy.instance.name
+BciDeviceProxy.instance.state
+BciDeviceProxy.instance.attention
+BciDeviceProxy.instance.meditation
+
+BciDeviceProxy.instance.onBatteryLevelChanged
+BciDeviceProxy.instance.onDeviceInfo
+BciDeviceProxy.instance.onStateChanged
+// EEG Data, voltage difference between Fp1 and Fp2, uV, sample rate is 250Hz, five times callback usually per second, per callback contains 50 elements 
+BciDeviceProxy.instance.onEEGData
+// EEG Data - without filter
+BciDeviceProxy.instance.onRawEEGData
+// Band power values, uV/Hz
+BciDeviceProxy.instance.onBrainWave
+// Attention Index
+BciDeviceProxy.instance.onAttention
+// Meditation Index
+BciDeviceProxy.instance.onMeditation
+
+class BciDeviceInfo {
+  String sn = '';
+  String firmwareRevision = '';
+}
+
+enum BciDeviceConnectivity {
+  disconnected,
+  connecting,
+  connected, // ble device state is connected & pair success
+  disconnecting
+}
+
+// EEG metal electrode contact well with skin
+enum BciDeviceContactState { unknown, contact, noContact }
+
+// device state
+enum BciDeviceState {
   disconnected,
 
-  /// 
   connecting,
 
-  /// device connected
+  //ble device state is connected & pair success
   connected,
 
-  /// device adjust fit
+  // device adjust fit
   contacting,
 
-  /// device wear upsideDown 
+  // device orientation upsideDown
   contactUpsideDown,
 
-  /// AFE contact well and device wear normal
+  // EEG metal electrode contact well with skin and device orientation is normal 
   contacted,
 
-  /// attention & meditation analyzed
+  // in working, output attention & meditation 
   analyzed
 }
-HeadbandProxy.instance.onStateChanged
 
-// voltage difference between Fp1 and Fp2, sample rate 250HZ, about return five times per second, every array contains 50 elements 
-HeadbandProxy.instance.onEEGData
-// Band power values
+enum BciDeviceOrientation { unknown, normal, upsideDown }
+
+class EEGModel {
+  final int seqNum;
+  final List<double> eeg;
+}
+
 // delta: [0.5~4],
 // theta: [4~8],
 // alpha:[8~12]
 // lowBeta:[12~22]
 // highBeta:[22-32]
 // gamma[32-56]
-HeadbandProxy.instance.onBrainWave
+class BrainWaveModel {
+  late double gamma;
+  late double highBeta;
+  late double lowBeta;
+  late double alpha;
+  late double theta;
+  late double delta;
+}
+```
 
-HeadbandProxy.instance.onAttention
-HeadbandProxy.instance.onMeditation
+### DFU
+
+```dart
+Future _startDfu(CrimsonDevice device, String zipFilePath) async {
+  clearOtaSubscriptions();
+
+  device.otaProgressController.listen((value) {
+    final percent = value ~/ 10; // 0~100
+  }).addToList(_otaSubscriptions);
+
+  device.otaMsgController.listen((msg) {
+    dfuProgress.value = msg;
+  }).addToList(_otaSubscriptions);
+
+  device.otaStatusController.listen((status) {
+    switch (status) {
+      case OtaStatus.success:
+      case OtaStatus.failed:
+        _otaRunning = false;
+        break;
+      default:
+        break;
+    }
+  }).addToList(_otaSubscriptions);
+
+  device.startDfu(zipFilePath);
+}
+
+void clearOtaSubscriptions() {
+  for (var subscription in _otaSubscriptions) {
+    subscription.cancel();
+  }
+  _otaSubscriptions.clear();
+}
 ```
