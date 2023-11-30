@@ -11,7 +11,7 @@ pnpm docs:dev
 
 pnpm docs:build
 open docs/.vuepress/dist
-./oss.sh
+./upload.sh
 ```
 
 > References

@@ -38,5 +38,6 @@
     "vuepress",
     "vueuse",
     "zoomable"
-  ]
+  ],
+  "editor.inlineSuggest.showToolbar": "onHover"
 }

@@ -2,7 +2,7 @@
 
 ## Download
 
-[Apk](https://app.brainco.cn/zen/android/apk/oxyzen-demo-0.0.1-profile.apk)
+[Apk](https://app.brainco.cn/zen/android/apk/oxyzen-demo-0.0.2-profile.apk)
 
 [Example](<https://github.com/BrainCoTech/bci_device_sdk_example>)
 
@@ -19,7 +19,7 @@
 ```yaml
 # login with Gitlab, account: external, pwd: 9dHmY1BvV&CW%K%Q
 libcmsn:
-  version: 1.4.9
+  version: ^1.15.0
   hosted:
     name: libcmsn
     url: https://dart-pub.brainco.cn 
@@ -36,12 +36,10 @@ dart pu
 BciDevicePluginRegistry.register(CrimsonPluginRegistry());
 await AppLogger.init(level: Level.INFO);
 loggerApp.i('------------------initBCIDeviceSdk, init------------------');
-loggerApp.i('-----crimson version=${getCrimsonSDKVersion()}-----');
+loggerApp.i('-----crimson version=${CrimsonFFI.sdkVersion}-----');
 BciDeviceConfig.setAvailableModes({
   BciDeviceDataMode.attention,
   BciDeviceDataMode.meditation,
-  BciDeviceDataMode.drowsiness,
-  BciDeviceDataMode.stress,
 });
 await BciDeviceManager.init();
 ```
@@ -77,7 +75,7 @@ await BleScanner.instance.stopScan();
 
 ```dart
 // Scanned Devices
-BleScanner.instance.onFoundDevices.map((e) => e as List<ScanResult>)
+BleScanner.instance.onFoundDevices
 ```
 
 ## Pair
@@ -121,7 +119,7 @@ BciDeviceProxy.instance.onMeditation
 
 class BciDeviceInfo {
   String sn = '';
-  String firmwareRevision = '';
+  String firmwareVersion = '';
 }
 
 enum BciDeviceConnectivity {
@@ -185,15 +183,11 @@ class BrainWaveModel {
 Future _startDfu(CrimsonDevice device, String zipFilePath) async {
   clearOtaSubscriptions();
 
-  device.otaProgressController.listen((value) {
+  device.dfuProgressStream.listen((value) {
     final percent = value ~/ 10; // 0~100
   }).addToList(_otaSubscriptions);
 
-  device.otaMsgController.listen((msg) {
-    dfuProgress.value = msg;
-  }).addToList(_otaSubscriptions);
-
-  device.otaStatusController.listen((status) {
+  device.dfuStateStream.listen((status) {
     switch (status) {
       case OtaStatus.success:
       case OtaStatus.failed:
@@ -204,7 +198,8 @@ Future _startDfu(CrimsonDevice device, String zipFilePath) async {
     }
   }).addToList(_otaSubscriptions);
 
-  device.startDfu(zipFilePath);
+  final ret = device.startDfu(zipFilePath);
+  if (!ret) _clearOtaSubscriptions();
 }
 
 void clearOtaSubscriptions() {
