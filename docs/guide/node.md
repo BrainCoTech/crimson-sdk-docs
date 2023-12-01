@@ -6,5 +6,5 @@
 
 ```json
 "dependencies": {
-  "crimson-sdk": "^1.4.3",
+  "crimson-sdk": "^1.4.4",
 }

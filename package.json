@@ -63,7 +63,7 @@
     "vitest": "^0.29.3"
   },
   "engines": {
-    "node": ">=14.18.0"
+    "node": ">=14.16.0"
   },
   "pnpm": {
     "peerDependencyRules": {
