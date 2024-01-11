@@ -1,11 +1,8 @@
 # 设备使用说明
 
-## 设备基本使用
+## 设备基本说明
 
-- **开/关**机，**短按**电源键，开机后默认为**普通**模式
-- 进入**配对**模式，**长按**电源键直至设备振动两次，此时LED为蓝灯**快速闪烁**
-
-## 设备LED灯光说明
+### LED灯光及工作模式
 
 | 颜色 | 说明 |
 |  ----  | ----  |
@@ -16,42 +13,58 @@
 | 白灯闪烁 | OTA |
 | 黄灯闪烁 | 电池温度异常 |
 
+### 设备开关机及工作模式切换
+
+- 开机，**短按一下**电源键
+- 关机，**短按一下**电源键
+- **普通模式**，开机后默认工作模式为**普通模式**
+- **配对模式**，**长按**电源键直至直至设备振动两次，此时LED为蓝灯**快速闪烁**
+
+## 设备连接流程
+
+### 权限检查
+
+- App蓝牙相关权限及蓝牙服务是否开启
+- App定位相关权限及定位服务是否开启（安卓6~11）
+
+### 无配对记录
+
+扫描处于**配对模式**的设备, 连接, 配对，配对成功则保存配对记录，配对失败则引导去重试
+
+### 有配对记录
+
+- 自动连接：扫描处于**普通模式**的设备, 连接, 不自动连接处于**配对模式**的设备，避免多设备出现抢连接的情况
+- 自动连接->校验配对信息，成功，进行其他通信
+- 自动连接->校验配对信息，失败，删除配对记录，引导去重试
+
 ::: tip
-设备配对成功以后，您可以设置设备的LED灯光颜色
+
+- 设备配对成功以后，LED为白灯常亮，此时可以设置LED灯光颜色
+- 设备只能同时连接到一个终端，如果设备已经连接到其他终端，那么将无法扫描到该设备
+- 设备最多保存3条最新的配对记录
+- 安卓系统扫描频率限制，30秒不超过5次开启扫描  
+- 部分安卓设备处于后台模式时不返回扫描结果，如小米红米设备
+- 应用程序终止前断开GATT连接
 :::
 
-## 设备连接配对
+## Windows常见问题
 
-1. 连接新终端，切换到**配对**模式，然后开启扫描，连接，配对
-2. 连接配对成功过的终端，切换到**普通**模式，然后开启扫描，连接，校验配对信息
+### [系统要求及USB外接蓝牙说明](https://app.brainco.cn/docs/crimson-sdk/%E8%93%9D%E7%89%99%E8%84%91%E7%94%B5%E8%AE%BE%E5%A4%87%E5%9C%A8Windows%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.pdf)
 
-::: tip
-设备只能同时连接到一个终端，如果设备已经连接到其他终端，那么您将无法扫描连接到该设备
-:::
-
-## [在Windows上的使用说明](https://app.brainco.cn/docs/crimson-sdk/%E8%93%9D%E7%89%99%E8%84%91%E7%94%B5%E8%AE%BE%E5%A4%87%E5%9C%A8Windows%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.pdf)
-
-## Windows下无法扫描到设备
+### Windows下无法扫描到设备
 
 检查系统蓝牙设备及驱动是否正常，测试在蓝牙5.0环境下能够正常扫描连接运行
 当无法扫描到设备时，可以用微软官方BLE sample辅助验证排查问题
 [微软官方BLE sample](<https://github.com/microsoft/Windows-universal-samples/tree/main/Samples/BluetoothAdvertisement>)
 
-sample中的CompanyId需要改一下
-
 ```cpp
 watcher = new BluetoothLEAdvertisementWatcher();
 
 var manufacturerData = new BluetoothLEManufacturerData();
-manufacturerData.CompanyId = 0x5242;
-
-// Finally set the data payload within the manufacturer-specific section
-// Here, use a 16-bit UUID: 0x1234 -> {0x34, 0x12} (little-endian)
-// var writer = new DataWriter();
-// writer.WriteUInt16(0x1234);
+manufacturerData.CompanyId = 0x5242; // Crimson Company ID
 ```
 
-厂商自定义数据 manufacturer data
+## 厂商自定义数据 manufacturer data
 
 利用蓝牙广播"厂商自定义数据"字段【TYPE=0xFF】
 

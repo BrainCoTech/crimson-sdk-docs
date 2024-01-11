@@ -17,26 +17,26 @@
 ## Installation
 
 ```yaml
-# login with Gitlab, account: external, pwd: 9dHmY1BvV&CW%K%Q
 libcmsn:
-  version: ^1.15.0
+  version: ^1.17.6
   hosted:
     name: libcmsn
     url: https://dart-pub.brainco.cn 
 ```
 
-[pub-token](<https://dart.dev/tools/pub/cmd/pub-token>)
-
 ```shell
-dart pu
+# 1. login with Gitlab(<https://dart-pub.brainco.cn>), account: external, pwd: 9dHmY1BvV&CW%K%Q
+# 2. copyToken to env TOKEN_PUB
+dart pub token add https://dart-pub.brainco.cn --env-var TOKEN_PUB
+# see <https://dart.dev/tools/pub/cmd/pub-token>
+```
 
 ## Init
 
 ```dart
-BciDevicePluginRegistry.register(CrimsonPluginRegistry());
 await AppLogger.init(level: Level.INFO);
-loggerApp.i('------------------initBCIDeviceSdk, init------------------');
-loggerApp.i('-----crimson version=${CrimsonFFI.sdkVersion}-----');
+BciDevicePluginRegistry.init({CrimsonPluginRegistry()});
+loggerApp.i('-----Crimson sdkVersion=${CrimsonFFI.sdkVersion}-----');
 BciDeviceConfig.setAvailableModes({
   BciDeviceDataMode.attention,
   BciDeviceDataMode.meditation,

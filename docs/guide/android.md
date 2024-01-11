@@ -16,11 +16,11 @@ Android 6.0 or later
 // build.gradle
 
 android {
-    compileSdkVersion 31
+    compileSdk 34
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 31
+        minSdk 21
+        targetSdk 34
     }
 }
 
@@ -36,7 +36,7 @@ repositories {
 
 dependencies {
     // import crimson-sdk from maven
-    api 'tech.brainco:crimsonsdk:1.4.3'
+    api 'tech.brainco:crimsonsdk:1.4.5'
 }
 
 // manifest
