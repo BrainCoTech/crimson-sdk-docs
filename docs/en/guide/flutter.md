@@ -13,12 +13,13 @@
 - Android 5.0+
 - Mac 10.15+
 - Windows 10 build 10.0.15063 or later
+- Dart 3.0+
 
 ## Installation
 
 ```yaml
 libcmsn:
-  version: ^1.17.6
+  version: ^1.22.11
   hosted:
     name: libcmsn
     url: https://dart-pub.brainco.cn 
@@ -35,7 +36,7 @@ dart pub token add https://dart-pub.brainco.cn --env-var TOKEN_PUB
 
 ```dart
 await AppLogger.init(level: Level.INFO);
-BciDevicePluginRegistry.init({CrimsonPluginRegistry()});
+await BciDevicePluginRegistry.init({CrimsonPluginRegistry()});
 loggerApp.i('-----Crimson sdkVersion=${CrimsonFFI.sdkVersion}-----');
 BciDeviceConfig.setAvailableModes({
   BciDeviceDataMode.attention,
@@ -85,7 +86,7 @@ if the device cannot be scanned, or pair failed, please check [Instructions](./f
 ```dart
 try {
     await EasyLoading.show(status: 'pairing...');
-    await BciDeviceManager.bindBleScanResult(result);
+    await BleDeviceManager.bindScanResult(result);
     await EasyLoading.showSuccess('pair success');
 } catch (e, _) {
     loggerExample.i('$e');

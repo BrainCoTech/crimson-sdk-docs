@@ -13,13 +13,14 @@
 - Android 5.0+
 - Mac 10.15+
 - Windows 10 build 10.0.15063 or later
+- Dart 3.0+
 
 ## 安装依赖
 
 ```yaml
 # login with Gitlab, account: external, pwd: 9dHmY1BvV&CW%K%Q
 libcmsn:
-  version: ^1.17.6
+  version: ^1.22.11
   hosted:
     name: libcmsn
     url: https://dart-pub.brainco.cn 
@@ -38,7 +39,7 @@ dart pub token add https://dart-pub.brainco.cn --env-var TOKEN_PUB
 
 ```dart
 await AppLogger.init(level: Level.INFO);
-BciDevicePluginRegistry.init({CrimsonPluginRegistry()});
+await BciDevicePluginRegistry.init({CrimsonPluginRegistry()});
 loggerApp.i('-----Crimson sdkVersion=${CrimsonFFI.sdkVersion}-----');
 BciDeviceConfig.setAvailableModes({
   BciDeviceDataMode.attention,
@@ -88,7 +89,7 @@ BleScanner.instance.onFoundDevices
 ```dart
 try {
     await EasyLoading.show(status: '配对中...');
-    await BciDeviceManager.bindBleScanResult(result);
+    await BleDeviceManager.bindScanResult(result);
     await EasyLoading.showSuccess('配对成功!');
 } catch (e, _) {
     loggerExample.i('$e');

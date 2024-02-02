@@ -41,7 +41,7 @@ export default defineUserConfig({
     '/en/': {
       lang: 'en-US',
       title: 'Crimson-SDK',
-      description: 'Developer Kit for Focus Portable EEG Devices',
+      description: 'Developer Kit for Crimson Portable EEG Devices',
     },
   },
 
