@@ -36,7 +36,7 @@ export default defineUserConfig({
     '/': {
       lang: 'zh-CN',
       title: 'Crimson-SDK',
-      description: 'Focus便携脑电设备的开发者工具包',
+      description: 'Crimson便携式脑电设备的开发工具包',
     },
     '/en/': {
       lang: 'en-US',
