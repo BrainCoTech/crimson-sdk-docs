@@ -19,7 +19,7 @@
 
 ```yaml
 libcmsn:
-  version: ^1.22.11
+  version: 1.22.19
   hosted:
     name: libcmsn
     url: https://dart-pub.brainco.cn 

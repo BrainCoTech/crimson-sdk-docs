@@ -20,7 +20,7 @@
 ```yaml
 # login with Gitlab, account: external, pwd: 9dHmY1BvV&CW%K%Q
 libcmsn:
-  version: ^1.22.11
+  version: 1.22.19
   hosted:
     name: libcmsn
     url: https://dart-pub.brainco.cn 

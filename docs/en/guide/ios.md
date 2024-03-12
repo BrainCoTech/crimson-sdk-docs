@@ -30,7 +30,7 @@ inhibit_all_warnings!
 
 platform :ios, '12.0'
 
-pod 'CrimsonSDK', '~> 1.4.3'
+pod 'CrimsonSDK', '=1.4.5'
 ```
 
 ### Manual
